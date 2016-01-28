@@ -1,0 +1,11 @@
+Listen <%= @port %>
+
+NameVirtualHost *:<%= @port %>
+
+<Virtualhost *:<%= @port%>>
+DocumentRoot <%= @docroot %>
+ServerName <%= @servername %>
+
+# Other directives here
+
+</Virtualhost>  
