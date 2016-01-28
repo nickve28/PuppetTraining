@@ -9,12 +9,18 @@ define myapache2::vhost
   }
 
   file {"/${directory[1]}/${directory[2]}/":
-    ensure => 'directory'
+    ensure => 'directory',
+    mode   => 644,
+    owner   => 'apache',
+    group   => 'apache',
   }->
   
   file { $docroot:
    ensure  => 'directory',
-   recurse => true
+   recurse => true,
+   mode    => 644,
+   owner   => 'apache',
+   group   => 'apache',
   }->
 
   file { "/etc/httpd/conf.d/${servername}.conf":
